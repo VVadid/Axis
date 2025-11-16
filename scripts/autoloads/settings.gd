@@ -17,3 +17,10 @@ func _init() -> void:
 		print("Gamepads connected: " + str(connected_gamepads))
 	else:
 		print("No gamepads connected")
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Capture Mouse"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
