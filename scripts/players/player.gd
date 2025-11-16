@@ -10,6 +10,7 @@ extends CharacterBody3D
 @export var air_acceleration: float = 2.0
 @export var air_deceleration: float = 2.0
 
+@export var can_rotate: bool = true
 var speed: float
 var is_sprinting: bool
 
@@ -53,6 +54,7 @@ const CAPSULE_POSITION_Y: float = 1.0
 @onready var camera: Camera3D = $SpringArm3D/Camera3D
 @onready var combat_manager: Node = $CombatManager
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var hitbox: Hitbox = $Visuals/castle_guard_rig/Armature/Skeleton3D/SwordAttachment/Hitbox
 
 
 func _ready() -> void:
@@ -66,13 +68,14 @@ func _process(delta: float) -> void:
 	locomotion_state_machine.process(delta)
 	combat_state_machine.process(delta)
 	
+	can_rotate = not hitbox.monitorable
+	
 	var stamina_regeneration_conditions: bool = (
 		not is_attacking
 		and is_on_floor()
 		and not is_evading
 		and combat_manager.combat_stats.stamina < max_stamina
 	)
-	
 	if stamina_regeneration_conditions:
 		combat_manager.combat_stats.stamina += STAMINA_REGEN_RATE * delta
 

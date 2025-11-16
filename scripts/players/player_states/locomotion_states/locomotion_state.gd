@@ -40,13 +40,13 @@ func physics_process(delta: float) -> State:
 	
 
 	
-	var target_rotation
+	var target_rotation: float = 0.0
 	if player.is_target_locked and player.is_on_floor():
 		target_rotation = atan2(-to_target.x, -to_target.z)
 		player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
 	elif player.direction_vec:
 		target_rotation = atan2(-player.direction_vec.x, -player.direction_vec.z)
-		if player.velocity and not player.is_attacking:
+		if player.velocity and player.can_rotate:
 			player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
 
 	
