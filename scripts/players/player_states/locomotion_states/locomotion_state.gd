@@ -46,7 +46,7 @@ func physics_process(delta: float) -> State:
 		player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
 	elif player.direction_vec:
 		target_rotation = atan2(-player.direction_vec.x, -player.direction_vec.z)
-		if player.velocity:
+		if player.velocity and not player.is_attacking:
 			player.rotation.y = lerp_angle(player.rotation.y, target_rotation, 0.09)
 
 	
