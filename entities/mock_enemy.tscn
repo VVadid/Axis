@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bslaomoexm58a"]
+[gd_scene load_steps=25 format=4 uid="uid://bslaomoexm58a"]
 
 [ext_resource type="Script" uid="uid://exf3y54woksb" path="res://scripts/entities/mock_enemy.gd" id="1_mxc58"]
 [ext_resource type="PackedScene" uid="uid://hmbguqu4dkyv" path="res://components/hurtbox.tscn" id="2_mxc58"]
@@ -250,6 +250,9 @@ _data = {
 &"take_damage": SubResource("Animation_fjp5j")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5uamc"]
+radius = 0.2575276
+
 [node name="MockEnemy" type="CharacterBody3D" groups=["targetable"]]
 collision_layer = 4
 script = ExtResource("1_mxc58")
@@ -301,7 +304,7 @@ root = NodePath("..")
 shape = SubResource("CapsuleShape3D_bqxfe")
 
 [node name="CombatManager" parent="." node_paths=PackedStringArray("hitboxes", "hurtboxes") instance=ExtResource("5_hcruc")]
-hitboxes = [NodePath("../Hitbox")]
+hitboxes = [NodePath("../Hitbox"), NodePath("../FeetHitbox")]
 hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -313,8 +316,15 @@ libraries = {
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1000001, 0)
 
+[node name="FeetHitbox" parent="." instance=ExtResource("6_ribgu")]
+collision_layer = 4
+
+[node name="CollisionShape3D" parent="FeetHitbox" index="0"]
+shape = SubResource("SphereShape3D_5uamc")
+
 [connection signal="was_hit" from="Hurtbox" to="." method="_on_hurtbox_was_hit"]
 [connection signal="died" from="CombatManager" to="." method="_on_combat_manager_died"]
 [connection signal="took_damage" from="CombatManager" to="." method="_on_combat_manager_took_damage"]
 
 [editable path="Hurtbox"]
+[editable path="FeetHitbox"]

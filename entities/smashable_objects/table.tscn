@@ -56,6 +56,7 @@ metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [node name="Table" type="StaticBody3D"]
 transform = Transform3D(1.1281134, 0, 0, 0, 1.1281134, 0, 0, 0, 1.1281134, 0, 0, 0)
+collision_layer = 8
 script = ExtResource("1_l7eba")
 PIECES = ExtResource("2_yhlqe")
 
@@ -69,9 +70,10 @@ shape = SubResource("ConvexPolygonShape3D_hrd5a")
 
 [node name="Hitbox" parent="." instance=ExtResource("1_71d0j")]
 
-[node name="Hurtbox" parent="." instance=ExtResource("2_l7eba")]
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("root") instance=ExtResource("2_l7eba")]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 1.1452641, 0.48399463, -0.59765565)
-collision_mask = 2
+collision_mask = 6
+root = NodePath("..")
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(0.9999991, 0, 0, 0, 0.9999991, 0, 0, 0, 0.9999991, 0, 0, 0)

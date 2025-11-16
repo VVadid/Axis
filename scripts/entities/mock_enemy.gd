@@ -9,6 +9,10 @@ extends CharacterBody3D
 func _ready() -> void:
 	combat_manager.combat_stats = combat_stats.duplicate(true)
 	mesh.set_surface_override_material(0, mesh.get_active_material(0).duplicate())
+	
+	var feet_hitbox_damage_data = DamageData.new()
+	feet_hitbox_damage_data.damage_value = 10.0
+	$FeetHitbox.damage_data = feet_hitbox_damage_data
 
 
 func _physics_process(delta: float) -> void:

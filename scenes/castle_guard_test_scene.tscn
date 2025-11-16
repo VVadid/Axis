@@ -108,7 +108,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CastleGuard" parent="." instance=ExtResource("2_5dxip")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2535429, 0.14372453, -0.13955903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.574614, 5.5642767, 18.942087)
 floor_max_angle = 1.0471976
 
 [node name="Enemies" type="Node3D" parent="."]
