@@ -1,14 +1,13 @@
 [gd_scene load_steps=15 format=4 uid="uid://c7jk42std1eae"]
 
 [ext_resource type="Texture2D" uid="uid://uyv58jj4teqe" path="res://assets/models/smashable_objects/pumpkin/pumpkin_colormap.png" id="1_5mi1r"]
+[ext_resource type="Script" uid="uid://ugjogn3naija" path="res://scripts/smashable_objects/pumpkin.gd" id="1_7gsrn"]
 [ext_resource type="Script" uid="uid://bxc5cqo0m4ne" path="res://scripts/smashable_objects/model_replacer.gd" id="1_71oup"]
-[ext_resource type="PackedScene" uid="uid://dx47gkoyf6v1n" path="res://entities/smashable_objects/pumpkin_pieces.tscn" id="2_7b3xh"]
+[ext_resource type="PackedScene" uid="uid://dx47gkoyf6v1n" path="res://entities/smashable_objects/pumpkin_pieces.tscn" id="3_p4gqc"]
 [ext_resource type="PackedScene" uid="uid://hmbguqu4dkyv" path="res://components/hurtbox.tscn" id="4_7gsrn"]
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="4_p4gqc"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="4_x1kxb"]
 [ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/CombatStats.gd" id="5_7gsrn"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_7gsrn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bwu2"]
 resource_name = "colormap"
@@ -50,52 +49,54 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2ghnp")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xry6x"]
-points = PackedVector3Array(-0.08028203, 0.05728572, -0.2094385, -0.08028203, 0.12953211, -0.2094385, 0.080241024, 0.05728572, -0.2094385, -0.06921147, 0, -0.19029054, -0.2094385, 0.05728572, -0.08028203, -0.06921147, 0.18684027, -0.19029054, 0.080241024, 0.12953211, -0.2094385, -0.2094385, 0.12953211, -0.08028203, 0.069170445, 0, -0.19029054, 0.2094385, 0.05728572, -0.08028203, -0.19029054, 0, -0.06921147, -0.2094385, 0.05728572, 0.080241024, -0.19029054, 0.18684027, -0.06921147, -0.012874648, 0.22914287, -0.012874648, 0.069170445, 0.18684027, -0.19029054, 0.2094385, 0.12953211, -0.08028203, -0.2094385, 0.12953211, 0.080241024, 0.19024953, 0, -0.06921147, 0.2094385, 0.05728572, 0.080241024, -0.19029054, 0, 0.069170445, -0.08028203, 0.05728572, 0.2094385, -0.19029054, 0.18684027, 0.069170445, -0.012874648, 0.22914287, 0.01283364, 0.01283364, 0.22914287, -0.012874648, 0.19024953, 0.18684027, -0.06921147, 0.2094385, 0.12953211, 0.080241024, -0.08028203, 0.12953211, 0.2094385, 0.19024953, 0, 0.069170445, 0.080241024, 0.05728572, 0.2094385, -0.06921147, 0, 0.19024953, -0.06921147, 0.18684027, 0.19024953, 0.01283364, 0.22914287, 0.01283364, 0.19024953, 0.18684027, 0.069170445, 0.080241024, 0.12953211, 0.2094385, 0.069170445, 0, 0.19024953, 0.069170445, 0.18684027, 0.19024953)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7gsrn"]
+height = 0.4621582
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7gsrn"]
-height = 1.4541016
+height = 1.2988281
 
 [sub_resource type="Resource" id="Resource_jv14h"]
 script = ExtResource("5_7gsrn")
 health = 1.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
-[node name="pumpkin" type="StaticBody3D" groups=["targetable"]]
+[node name="pumpkin" type="RigidBody3D" groups=["targetable"]]
 collision_layer = 8
-script = ExtResource("1_71oup")
-PIECES = ExtResource("2_7b3xh")
-explodes = true
+collision_mask = 15
+script = ExtResource("1_7gsrn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-shape = SubResource("SphereShape3D_7gsrn")
+[node name="ModelReplacer" type="Node3D" parent="."]
+script = ExtResource("1_71oup")
+PIECES = ExtResource("3_p4gqc")
 
 [node name="pumpkin" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_c0ldp")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pumpkin"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pumpkin/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_xry6x")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23034668, 0)
+shape = SubResource("CylinderShape3D_7gsrn")
 
 [node name="Hitbox" parent="." instance=ExtResource("4_p4gqc")]
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("root") instance=ExtResource("4_7gsrn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0042135, 0)
 collision_mask = 2
 root = NodePath("..")
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27294922, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35058594, 0)
 shape = SubResource("CapsuleShape3D_7gsrn")
 
 [node name="CombatManager" parent="." node_paths=PackedStringArray("hitboxes", "hurtboxes") instance=ExtResource("4_x1kxb")]
 combat_stats = SubResource("Resource_jv14h")
 hitboxes = [NodePath("../Hitbox")]
 hurtboxes = [NodePath("../Hurtbox")]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.1, 0)
+collision_mask = 9
 
 [connection signal="died" from="CombatManager" to="." method="_on_combat_manager_died"]
 

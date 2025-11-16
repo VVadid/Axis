@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="1_71d0j"]
 [ext_resource type="Script" uid="uid://bxc5cqo0m4ne" path="res://scripts/smashable_objects/model_replacer.gd" id="1_l7eba"]
+[ext_resource type="Script" uid="uid://bgfchatlm64p8" path="res://scripts/smashable_objects/table.gd" id="1_yhlqe"]
 [ext_resource type="PackedScene" uid="uid://hmbguqu4dkyv" path="res://components/hurtbox.tscn" id="2_l7eba"]
 [ext_resource type="PackedScene" uid="uid://bson0cgvt4sq1" path="res://entities/smashable_objects/table_pieces.tscn" id="2_yhlqe"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="3_yhlqe"]
@@ -43,11 +44,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u6k3a")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hrd5a"]
-points = PackedVector3Array(0, 0.7043453, -1.0651746, 0, 0.8271746, -1.0651746, 0.12273236, 0, -1.0651746, 0, 0.306223, -0.5939996, 0, 0.8271746, 0, 2.0288572, 0.8271746, -1.0651746, 0.12273236, 0, 0, 1.9059263, 0, -1.0651746, 0, 0.306223, -0.47127932, 0, 0.7043453, 0, 2.0288572, 0.8271746, 0, 2.0288572, 0.7043453, -1.0651746, 1.9059263, 0, 0, 2.0288572, 0.306223, -0.5939996, 2.0288572, 0.7043453, 0, 2.0288572, 0.306223, -0.47127932)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yhlqe"]
-size = Vector3(2.2577393, 0.90000004, 1.1953125)
+[sub_resource type="BoxShape3D" id="BoxShape3D_j070j"]
+size = Vector3(2.2893066, 0.93078613, 1.2021484)
 
 [sub_resource type="Resource" id="Resource_34rmv"]
 script = ExtResource("4_j070j")
@@ -55,8 +53,11 @@ health = 1.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [node name="Table" type="StaticBody3D"]
-transform = Transform3D(1.1281134, 0, 0, 0, 1.1281134, 0, 0, 0, 1.1281134, 0, 0, 0)
 collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_yhlqe")
+
+[node name="ModelReplacer" type="Node3D" parent="."]
 script = ExtResource("1_l7eba")
 PIECES = ExtResource("2_yhlqe")
 
@@ -66,7 +67,8 @@ mesh = SubResource("ArrayMesh_2et7u")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_hrd5a")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1448975, 0.46539307, -0.6010742)
+shape = SubResource("BoxShape3D_j070j")
 
 [node name="Hitbox" parent="." instance=ExtResource("1_71d0j")]
 
@@ -77,7 +79,7 @@ root = NodePath("..")
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 transform = Transform3D(0.9999991, 0, 0, 0, 0.9999991, 0, 0, 0, 0.9999991, 0, 0, 0)
-shape = SubResource("BoxShape3D_yhlqe")
+shape = SubResource("BoxShape3D_j070j")
 
 [node name="CombatManager" parent="." node_paths=PackedStringArray("hitboxes", "hurtboxes") instance=ExtResource("3_yhlqe")]
 combat_stats = SubResource("Resource_34rmv")

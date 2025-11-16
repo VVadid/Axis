@@ -1,22 +1,15 @@
+class_name Pieces
 extends Node3D
 
-const INTENSITY: float = 6.0
 
-var explodes: bool
-
-
-func _ready() -> void:
-	break_object()
-
-
-func break_object() -> void:
+func break_object(explodes: bool, intensity: float) -> void:
 	if explodes:
 		for i in get_child_count():
 			if get_child(i) is AudioStreamPlayer3D:
 				continue
 			var angle: float = TAU * i / get_child_count()
 			var dir = Vector3(cos(angle), 0, sin(angle)).normalized()
-			get_child(i).apply_central_impulse(dir * INTENSITY)
+			get_child(i).apply_central_impulse(dir * intensity)
 
 	$AudioStreamPlayer3D.play(0.25)
 	await get_tree().create_timer(5).timeout
