@@ -46,6 +46,5 @@ func _on_was_hit(id:int, data: DamageData):
 
 func _on_struck(id: int):
 	for hitbox in hitboxes:
-		print(owner.name + " " + str(id))
 		if hitbox.id == id:
 			struck.emit(hitbox.damage_data)

@@ -21,10 +21,7 @@ func enter() -> void:
 func physics_process(delta: float) -> State:
 	super(delta)
 	
-	
 	player.feet_hitbox.monitorable = player.velocity.y < STOMP_DAMAGE_SPEED_LIMIT
-	
-	print(player.feet_hitbox.monitorable)
 	
 	if player.is_on_floor():
 		return idle_state
