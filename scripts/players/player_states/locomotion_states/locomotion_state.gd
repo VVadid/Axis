@@ -16,6 +16,7 @@ func enter() -> void:
 
 
 func physics_process(delta: float) -> State:
+	super(delta)
 	player.speed = target_locked_speed if player.is_target_locked else free_speed
 	
 	var acceleration = player.acceleration if player.is_on_floor() else player.air_acceleration

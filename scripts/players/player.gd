@@ -2,6 +2,9 @@ class_name Player
 extends CharacterBody3D
 
 
+signal took_damage(combat_stats: CombatStats, damage_data: DamageData)
+signal died(combat_stats: CombatStats, damage_data: DamageData)
+
 # LOCOMOTION
 @export var jump_speed: float = 5.0
 @export var sprint_jump_speed: float = 5.0
@@ -16,6 +19,9 @@ var is_sprinting: bool
 
 
 # COMBAT
+const MAX_HEALTH = 100.0
+const MAX_STAMINA = 100.0
+var is_dead: bool = false
 var is_attacking: bool = false
 var is_evading: bool = false
 
@@ -58,12 +64,14 @@ const CAPSULE_POSITION_Y: float = 1.0
 @onready var feet_hitbox: Hitbox = $FeetHitbox
 
 
-
 func _ready() -> void:
+	is_dead = false
 	locomotion_state_machine.initialize()
 	combat_state_machine.initialize()
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	combat_manager.combat_stats.health = MAX_HEALTH
+	combat_manager.combat_stats.stamina = MAX_STAMINA
+	
 
 
 func _process(delta: float) -> void:
@@ -103,3 +111,13 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	locomotion_state_machine.input(event)
 	combat_state_machine.input(event)
+
+
+
+func _on_combat_manager_took_damage(damage_data: DamageData) -> void:
+	took_damage.emit(combat_manager.combat_stats ,damage_data)
+
+
+func _on_combat_manager_died(damage_data: DamageData) -> void:
+	is_dead = true
+	died.emit(combat_manager.combat_stats, damage_data)

@@ -7,6 +7,10 @@ extends VBoxContainer
 @onready var stamina_bar: ProgressBar = $StaminaBar
 
 
-func _process(delta: float) -> void:
+func _ready() -> void:
+	health_bar.max_value = player.MAX_HEALTH
+	stamina_bar.max_value = player.MAX_STAMINA
+
+func _process(_delta: float) -> void:
 	health_bar.value = player.combat_manager.combat_stats.health
 	stamina_bar.value = player.combat_manager.combat_stats.stamina
