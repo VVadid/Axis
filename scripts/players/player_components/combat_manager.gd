@@ -6,14 +6,20 @@ signal struck(damage_data: DamageData)
 
 @export var combat_stats: CombatStats
 
-@export var hurtbox: Hurtbox
-@export var hitbox: Hitbox
+#@export var hurtbox: Hurtbox
+#@export var hitbox: Hitbox
+
+@export var hitboxes: Array[Hitbox]
+@export var hurtboxes: Array[Hurtbox]
 
 
 
 func _ready() -> void:
-	hurtbox.was_hit.connect(_on_was_hit)
-	hitbox.struck.connect(_on_struck)
+	for hurtbox in hurtboxes:
+		hurtbox.was_hit.connect(_on_was_hit)
+	
+	for hitbox in hitboxes:
+		hitbox.struck.connect(_on_struck)
 
 
 func take_damage(data: DamageData):
@@ -32,9 +38,14 @@ func drain_stamina(amount: float) -> void:
 	combat_stats.stamina -= amount
 
 
-func _on_was_hit(data: DamageData):
-	take_damage(data)
+func _on_was_hit(id:int, data: DamageData):
+	for hurtbox in hurtboxes:
+		if hurtbox.id == id:
+			take_damage(data)
 
 
-func _on_struck():
-	struck.emit(hitbox.damage_data)
+func _on_struck(id: int):
+	for hitbox in hitboxes:
+		print(owner.name + " " + str(id))
+		if hitbox.id == id:
+			struck.emit(hitbox.damage_data)

@@ -274,9 +274,9 @@ collision_mask = 2
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
 shape = SubResource("CapsuleShape3D_bqxfe")
 
-[node name="CombatManager" parent="." node_paths=PackedStringArray("hurtbox", "hitbox") instance=ExtResource("5_hcruc")]
-hurtbox = NodePath("../Hurtbox")
-hitbox = NodePath("../Hitbox")
+[node name="CombatManager" parent="." node_paths=PackedStringArray("hitboxes", "hurtboxes") instance=ExtResource("5_hcruc")]
+hitboxes = [NodePath("../Hitbox")]
+hurtboxes = [NodePath("../Hurtbox")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
