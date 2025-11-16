@@ -64,6 +64,7 @@ metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 [node name="pumpkin" type="StaticBody3D" groups=["targetable"]]
 script = ExtResource("1_71oup")
 PIECES = ExtResource("2_7b3xh")
+explodes = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)

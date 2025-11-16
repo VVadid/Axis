@@ -1,12 +1,13 @@
 extends Node3D
 
 @export var PIECES: PackedScene
-
+@export var explodes: bool
 
 func replace_model() -> void:
 	var pieces: Node3D = PIECES.instantiate()
-	get_parent().add_child(pieces)
 	pieces.transform = transform
+	pieces.explodes = explodes
+	get_parent().add_child(pieces)
 	
 	queue_free()
 
