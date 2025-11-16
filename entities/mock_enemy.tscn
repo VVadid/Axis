@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://hmbguqu4dkyv" path="res://components/hurtbox.tscn" id="2_mxc58"]
 [ext_resource type="Texture2D" uid="uid://cprtm1fqaf0vi" path="res://icon.svg" id="2_o5evs"]
 [ext_resource type="PackedScene" uid="uid://cgg3yuwmr17cn" path="res://components/combat_manager.tscn" id="5_hcruc"]
+[ext_resource type="AudioStream" uid="uid://ct6xi6r2bgjer" path="res://assets/sfx/crate-break.mp3" id="6_q6ojk"]
 [ext_resource type="PackedScene" uid="uid://timl11fn7e7r" path="res://components/hitbox.tscn" id="6_ribgu"]
-[ext_resource type="AudioStream" uid="uid://bugcrtvlbst1b" path="res://assets/sfx/quick-saber-cut.mp3" id="7_ld3am"]
-[ext_resource type="AudioStream" uid="uid://cm7m57ynxtlmd" path="res://assets/sfx/sword-slash-swoosh.mp3" id="7_ribgu"]
+[ext_resource type="AudioStream" uid="uid://dppme87qya1cr" path="res://assets/sfx/impact.1.ogg" id="7_5uamc"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5uamc"]
 load_path = "res://.godot/imported/medieval_combat_dummy_Image_0.jpg-d64f71f83108a01998e16698de6ba070.s3tc.ctex"
@@ -144,7 +144,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("7_ribgu")
+"stream": ExtResource("6_q6ojk")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -200,8 +200,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("7_ld3am")
+"start_offset": 0.1734,
+"stream": ExtResource("7_5uamc")
 }],
 "times": PackedFloat32Array(0)
 }
