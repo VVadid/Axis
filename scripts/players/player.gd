@@ -41,6 +41,12 @@ const STAMINA_REGEN_RATE: float = 20.0
 @export var evade_stamina_cost: float = 25.0
 
 
+# COLLISION
+const CAPSULE_HEIGHT: float = 2.0
+const CAPSULE_POSITION_Y: float = 1.0
+
+
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var locomotion_state_machine: StateMachine = $LocomotionStateMachine
 @onready var combat_state_machine: StateMachine = $CombatStateMachine
 @onready var camera_spring_arm: SpringArm3D = $SpringArm3D

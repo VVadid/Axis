@@ -9,6 +9,10 @@ extends LocomotionState
 @export_node_path("State") var sprint_state_path
 @onready var sprint_state = get_node(sprint_state_path)
 
+@export_node_path("State") var fall_state_path
+@onready var fall_state = get_node(fall_state_path)
+
+
 
 
 var should_exit_state: bool = false
@@ -16,17 +20,23 @@ var evade_dir: Vector3
 
 func enter() -> void:
 	super()
-	player.is_evading = true
 	should_exit_state = false
 	evade_dir = player.direction_vec
+
+	player.is_evading = true
 	player.hurtbox.monitoring = false
+	player.collision_shape_3d.shape.height = player.CAPSULE_HEIGHT / 2.0
+	player.collision_shape_3d.position.y = player.CAPSULE_POSITION_Y / 2.0
+	
 	%AnimationTree.request_evade_one_shot()
 	player.combat_manager.drain_stamina(player.evade_stamina_cost)
 
 func process(delta: float) -> State:
 	super(delta)
 	if should_exit_state:
-		if not player.direction_vec:
+		if not player.is_on_floor():
+			return fall_state
+		elif not player.direction_vec:
 			return idle_state
 		elif Input.is_action_pressed("Sprint"):
 			return sprint_state
@@ -37,8 +47,9 @@ func process(delta: float) -> State:
 
 
 func physics_process(delta: float) -> State:
-	player.velocity = evade_dir * free_speed
-
+	player.velocity += player.get_gravity() * delta
+	player.velocity.x = evade_dir.x * free_speed
+	player.velocity.z = evade_dir.z * free_speed
 
 	var target_rotation = atan2(-player.direction_vec.x, -player.direction_vec.z)
 	if player.velocity:
@@ -51,6 +62,8 @@ func exit() -> void:
 	super()
 	player.is_evading = false
 	player.hurtbox.monitoring = true
+	player.collision_shape_3d.shape.height = player.CAPSULE_HEIGHT
+	player.collision_shape_3d.position.y = player.CAPSULE_POSITION_Y
 
 
 func transform_to_target_space() -> Vector3:
