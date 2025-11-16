@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+
+const PUSH_MODIFIER: float = 0.5
+
 @onready var combat_manager: Node = $CombatManager
 @export var combat_stats: CombatStats
 
@@ -22,12 +25,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_combat_manager_died(_damage_data: DamageData) -> void:
+func _on_combat_manager_died(damage_data: DamageData) -> void:
+	velocity = damage_data.hit_direction * damage_data.damage_value * PUSH_MODIFIER
 	%AnimationPlayer.play("die")
 
 
 func _on_combat_manager_took_damage(damage_data: DamageData) -> void:
-	print(damage_data.hit_direction)
-	velocity = damage_data.hit_direction * damage_data.damage_value
+	velocity = damage_data.hit_direction * damage_data.damage_value * PUSH_MODIFIER
 	%AnimationPlayer.play("take_damage")
 	
