@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends RigidBody3D
 
 
 var explodes_on_breaking: bool = false

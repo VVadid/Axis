@@ -52,7 +52,7 @@ script = ExtResource("4_j070j")
 health = 1.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
-[node name="Table" type="StaticBody3D"]
+[node name="Table" type="RigidBody3D"]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_yhlqe")

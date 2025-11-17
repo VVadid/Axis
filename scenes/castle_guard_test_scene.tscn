@@ -269,6 +269,15 @@ transform = Transform3D(1.0607448, 0, 0.38400522, 0, 1.1281133, 0, -0.38400522, 
 [node name="Table11" parent="Objects" instance=ExtResource("11_5lmjk")]
 transform = Transform3D(1.0607448, 0, 0.38400522, 0, 1.1281133, 0, -0.38400522, 0, 1.0607448, -15.962177, 0, 14.018726)
 
+[node name="Table12" parent="Objects" instance=ExtResource("11_5lmjk")]
+transform = Transform3D(0.38400516, 0, -1.0607448, 0, 1.1281133, 0, 1.0607448, 0, 0.38400516, -18.395489, 4.7683713e-07, 15.655077)
+
+[node name="Table13" parent="Objects" instance=ExtResource("11_5lmjk")]
+transform = Transform3D(0.05790043, 0, -1.1266263, 0, 1.1281133, 0, 1.1266263, 0, 0.05790043, -17.965994, 1.246776, 15.324583)
+
+[node name="Table14" parent="Objects" instance=ExtResource("11_5lmjk")]
+transform = Transform3D(0.7885112, 0, -0.80677706, 0, 1.1281133, 0, 0.80677706, 0, 0.7885112, -18.714294, 2.4223218, 16.186037)
+
 [node name="Table3" parent="Objects" instance=ExtResource("11_5lmjk")]
 transform = Transform3D(1.0408262, 0, 0.4351096, 0, 1.1281133, 0, -0.4351096, 0, 1.0408262, 0.45044184, 0, -11.692927)
 
