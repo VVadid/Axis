@@ -1,6 +1,6 @@
 extends Area3D
 
-
+@onready var reticle: Sprite3D = $"../Reticle"
 @export var player: Player
 var target_candidates = []
 
@@ -16,6 +16,19 @@ func _process(_delta: float) -> void:
 		for candidate_data in get_valid_candidates():
 			print(candidate_data["body"].name + ": " + str(candidate_data["score"]))
 		print("--------------")
+	
+	if player.is_target_locked and player.current_target:
+		reticle.visible = true
+		var reticle_position = player.current_target.global_position
+		var reticle_position_offset = Vector3(0, 2.5, 0)
+	
+		reticle.global_position = reticle_position + reticle_position_offset
+		reticle.look_at(player.global_position)
+		reticle.rotation.x = 0
+		reticle.rotation.z = 0
+	else:
+		reticle.visible = false
+		reticle.global_position = player.global_position
 
 
 
@@ -28,6 +41,8 @@ func set_target() -> void:
 			best_candidate = candidate_data
 	
 	player.current_target = best_candidate["body"]
+	
+	
 
 func release_target() -> void:
 	player.current_target = null
