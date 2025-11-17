@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://sg267t5mheeo"]
+[gd_scene load_steps=22 format=3 uid="uid://sg267t5mheeo"]
 
 [ext_resource type="Script" uid="uid://co76jhf4cxtkj" path="res://scripts/scenes/castle_guard_test_scene.gd" id="1_5dxip"]
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bcmwmukkthxk7" path="res://scripts/ui/player_hud/vitality_stats.gd" id="2_521ro"]
 [ext_resource type="PackedScene" uid="uid://bslaomoexm58a" path="res://entities/mock_enemy.tscn" id="3_521ro"]
 [ext_resource type="Script" uid="uid://bhqmmiil3ivhf" path="res://scripts/custom_resources/CombatStats.gd" id="4_ymcdr"]
+[ext_resource type="PackedScene" uid="uid://iaaproaqo1mj" path="res://entities/vampire.tscn" id="6_l24ej"]
 [ext_resource type="Material" uid="uid://b0a54d8f0avng" path="res://assets/materials/prototype_materials/purple_test_mat1.tres" id="7_jxel8"]
 [ext_resource type="Material" uid="uid://s4isx22cl1cs" path="res://assets/materials/prototype_materials/orange_test_mat1.tres" id="7_ymcdr"]
 [ext_resource type="Material" uid="uid://crca2g7xdosld" path="res://assets/materials/prototype_materials/green_test_mat1.tres" id="8_rvrge"]
@@ -157,6 +158,10 @@ combat_stats = SubResource("Resource_5dxip")
 [node name="MockEnemy7" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.388145, 3.9835718, 16.229635)
 combat_stats = SubResource("Resource_5dxip")
+
+[node name="Vampire" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.872515, 1.4557519, -9.592266)
+player = NodePath("../../CastleGuard")
 
 [node name="WorldGeometry" type="Node3D" parent="."]
 
