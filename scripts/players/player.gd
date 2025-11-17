@@ -62,6 +62,8 @@ const CAPSULE_POSITION_Y: float = 1.0
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var hitbox: Hitbox = $Visuals/castle_guard_rig/Armature/Skeleton3D/SwordAttachment/Hitbox
 @onready var feet_hitbox: Hitbox = $FeetHitbox
+@onready var evade_hitbox: Hitbox = $EvadeHitbox
+
 
 
 func _ready() -> void:

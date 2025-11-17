@@ -74,7 +74,7 @@ shape = SubResource("BoxShape3D_j070j")
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("root") instance=ExtResource("2_l7eba")]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 1.1452641, 0.48399463, -0.59765565)
-collision_mask = 6
+collision_mask = 22
 root = NodePath("..")
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
