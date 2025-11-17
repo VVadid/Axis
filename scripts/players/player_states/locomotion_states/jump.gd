@@ -1,9 +1,5 @@
 extends LocomotionState
 
-
-@export_node_path("State") var walk_state_path
-@onready var walk_state = get_node(walk_state_path)
-
 @export_node_path("State") var fall_state_path
 @onready var fall_state = get_node(fall_state_path)
 
@@ -24,8 +20,5 @@ func physics_process(delta: float) -> State:
 	
 	if player.velocity.y < 0:
 		return fall_state
-	
-	if player.is_on_floor():
-		return walk_state
 	
 	return null
