@@ -13,10 +13,12 @@ var should_attack: bool
 @onready var claw_hitbox: Hitbox = $vampire/Armature/Skeleton3D/BoneAttachment3D/Hitbox
 @onready var player_chase_detector: Area3D = $PlayerChaseDetector
 @onready var combat_manager: Node = $CombatManager
+@onready var mesh: MeshInstance3D = $vampire/Armature/Skeleton3D/Vampire
 
 
 func _ready() -> void:
 	state_machine.initialize()
+	mesh.set_surface_override_material(0, mesh.get_active_material(0).duplicate())
 	claw_hitbox.damage_data = damage_data
 	combat_manager.combat_stats = combat_stats
 
