@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Settings="*res://scripts/autoloads/settings.gd"
+HitStopManager="*res://scripts/autoloads/hit_stop_manager.gd"
 
 [editor]
 

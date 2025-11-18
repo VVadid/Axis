@@ -37,3 +37,8 @@ func screen_shake(intensity: float, time: float):
 
 func _on_combat_manager_struck(_damage_data: DamageData) -> void:
 	screen_shake(0.4, 0.1)
+	HitStopManager.apply_hitstop(0.05, 0.05)
+
+
+func _on_combat_manager_took_damage(damage_data: DamageData) -> void:
+	screen_shake(0.6, 0.1)
