@@ -53,7 +53,6 @@ shadow_mesh = SubResource("ArrayMesh_2ghnp")
 height = 0.4621582
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7gsrn"]
-height = 1.2988281
 
 [sub_resource type="Resource" id="Resource_jv14h"]
 script = ExtResource("5_7gsrn")
@@ -81,12 +80,12 @@ shape = SubResource("CylinderShape3D_7gsrn")
 [node name="Hitbox" parent="." instance=ExtResource("4_p4gqc")]
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("root") instance=ExtResource("4_7gsrn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0042135, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5490962, 0)
 collision_mask = 18
 root = NodePath("..")
 
 [node name="CollisionShape3D" parent="Hurtbox" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35058594, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("CapsuleShape3D_7gsrn")
 
 [node name="CombatManager" parent="." node_paths=PackedStringArray("hitboxes", "hurtboxes") instance=ExtResource("4_x1kxb")]
