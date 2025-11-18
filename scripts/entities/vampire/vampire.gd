@@ -2,6 +2,7 @@ extends Enemy
 
 
 @export var damage_data: DamageData
+@export var combat_stats: CombatStats
 
 var is_player_in_proximity: bool
 var should_attack: bool
@@ -11,11 +12,13 @@ var should_attack: bool
 @onready var fx_anim_player: AnimationPlayer = $FXAnimPlayer
 @onready var claw_hitbox: Hitbox = $vampire/Armature/Skeleton3D/BoneAttachment3D/Hitbox
 @onready var player_chase_detector: Area3D = $PlayerChaseDetector
+@onready var combat_manager: Node = $CombatManager
 
 
 func _ready() -> void:
 	state_machine.initialize()
 	claw_hitbox.damage_data = damage_data
+	combat_manager.combat_stats = combat_stats
 
 
 func _process(delta: float) -> void:

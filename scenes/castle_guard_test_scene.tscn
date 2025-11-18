@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://sg267t5mheeo"]
+[gd_scene load_steps=25 format=3 uid="uid://sg267t5mheeo"]
 
 [ext_resource type="Script" uid="uid://co76jhf4cxtkj" path="res://scripts/scenes/castle_guard_test_scene.gd" id="1_5dxip"]
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
@@ -47,10 +47,15 @@ stamina = 10.0
 armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
-[sub_resource type="Resource" id="Resource_fupxy"]
+[sub_resource type="Resource" id="Resource_dulke"]
 script = ExtResource("7_dulke")
 damage_value = 10.0
 metadata/_custom_type_script = "uid://bkqea6iys40et"
+
+[sub_resource type="Resource" id="Resource_fupxy"]
+script = ExtResource("4_ymcdr")
+health = 200.0
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia1lp"]
 albedo_texture = ExtResource("1_xkx7l")
@@ -149,10 +154,6 @@ combat_stats = SubResource("Resource_5dxip")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.870735, 0.050929874, 11.772595)
 combat_stats = SubResource("Resource_5dxip")
 
-[node name="MockEnemy8" parent="Enemies" instance=ExtResource("3_521ro")]
-transform = Transform3D(0.75491565, 0, -0.65582186, 0, 1, 0, 0.65582186, 0, 0.75491565, 25.274603, 1.3325528, -3.0348287)
-combat_stats = SubResource("Resource_5dxip")
-
 [node name="MockEnemy9" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(0.75491565, 0, -0.65582186, 0, 1, 0, 0.65582186, 0, 0.75491565, 19.005234, 1.3325528, -9.352795)
 combat_stats = SubResource("Resource_5dxip")
@@ -166,8 +167,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.388145, 3.9835718, 16.229
 combat_stats = SubResource("Resource_5dxip")
 
 [node name="Vampire" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.872515, 1.4557519, -9.592266)
-damage_data = SubResource("Resource_fupxy")
+transform = Transform3D(-0.035701837, 0, -0.99936247, 0, 1, 0, 0.99936247, 0, -0.035701837, 24.253593, 1.3297594, -3.945053)
+damage_data = SubResource("Resource_dulke")
+combat_stats = SubResource("Resource_fupxy")
 player = NodePath("../../CastleGuard")
 
 [node name="WorldGeometry" type="Node3D" parent="."]
@@ -264,7 +266,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.800001, 3.6999998, -13.99
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.000002, 3.6999998, -3.6999989)
 
 [node name="pumpkin8" parent="Objects" instance=ExtResource("10_q5s2f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.142557, 3.3582833, -8.730972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.793873, 1.9123046, 0.5320549)
 
 [node name="Table" parent="Objects" instance=ExtResource("11_5lmjk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 0, 6.2000003)
@@ -294,19 +296,19 @@ transform = Transform3D(0.6989647, 0, -0.7151562, 0, 1, 0, 0.7151562, 0, 0.69896
 transform = Transform3D(0.9226256, 0, 0.38569674, 0, 1, 0, -0.38569674, 0, 0.9226256, 0.45044184, 0, -11.692927)
 
 [node name="Table4" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.8617354, 0, -0.5073579, 0, 1, 0, 0.5073579, 0, 0.8617354, 21.432913, 1.3489811, -7.0995207)
+transform = Transform3D(0.5302448, 0, -0.84784454, 0, 1, 0, 0.84784454, 0, 0.5302448, 16.1734, 0.049999952, 0.63439894)
 
 [node name="Table5" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.8617354, 0, -0.5073579, 0, 1, 0, 0.5073579, 0, 0.8617354, 22.312311, 1.3489811, -8.593157)
+transform = Transform3D(0.5302448, 0, -0.84784454, 0, 1, 0, 0.84784454, 0, 0.5302448, 17.0528, 0.049999952, -0.85923624)
 
 [node name="Table6" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(-0.43266806, 0, -0.9015533, 0, 1, 0, 0.9015533, 0, -0.43266806, 22.90257, 2.2821276, -9.823084)
+transform = Transform3D(-0.43266806, 0, -0.9015533, 0, 1, 0, 0.9015533, 0, -0.43266806, 17.74324, 0.9807861, -0.78510094)
 
 [node name="Table7" parent="Objects" instance=ExtResource("11_5lmjk")]
 transform = Transform3D(0.00492173, 0, -0.9999879, 0, 1, 0, 0.9999879, 0, 0.00492173, 15.65056, 0.049999714, -10.135646)
 
 [node name="Table8" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(-0.99681795, 0, 0.07971181, 0, 1, 0, -0.07971181, 0, -0.99681795, 22.255777, 0.049999714, -1.5677714)
+transform = Transform3D(0.7078592, 0, 0.7063535, 0, 1, 0, -0.7063535, 0, 0.7078592, 26.382113, 0.049999714, -0.31362492)
 
 [connection signal="pressed" from="CanvasLayer/Control/Menu/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Menu/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
