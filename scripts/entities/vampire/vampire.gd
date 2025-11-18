@@ -20,7 +20,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process(delta)
-	print(state_machine.current_state.name)
 	is_player_in_proximity = player_chase_detector.is_player_in_proximity
 
 
