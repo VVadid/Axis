@@ -1,5 +1,7 @@
 extends Area3D
 
+signal released_target
+
 @onready var reticle: Sprite3D = $"../Reticle"
 @export var player: Player
 var target_candidates = []
@@ -46,6 +48,7 @@ func set_target() -> void:
 
 func release_target() -> void:
 	player.current_target = null
+	released_target.emit()
 
 
 func get_valid_candidates():

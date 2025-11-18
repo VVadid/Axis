@@ -20,13 +20,23 @@ extends LocomotionState
 
 
 var should_exit_state: bool = false
-var evade_dir: Vector3
+
+var enter_enemy
+var enter_dir: Vector3
+var input_dir: Vector2
+
+const ORBITAL_SPEED: float = 4.0
+const LINEAR_SPEED: float = 4.0
+const EVADE_MAX_SPEED: float = 3.0
+
 
 func enter() -> void:
 	super()
 	should_exit_state = false
-	evade_dir = player.direction_vec
-
+	enter_dir = player.direction_vec
+	input_dir = player.input_dir
+	enter_enemy = player.current_target
+	
 	player.is_evading = true
 	player.hurtbox.monitoring = false
 	player.evade_hitbox.monitorable = true
@@ -53,9 +63,30 @@ func process(delta: float) -> State:
 
 
 func physics_process(delta: float) -> State:
+	if enter_enemy:
+		var to_enemy: Vector3 = (
+			enter_enemy.global_position - player.global_position
+			).normalized()
+		
+		
+		var orbital_dir: Vector3 = to_enemy.cross(
+			Vector3.UP * sign(input_dir.x)
+			).normalized()
+		
+		var linear_dir: Vector3 = to_enemy * sign(input_dir.y)
+		
+		var final_velocity = orbital_dir * ORBITAL_SPEED + linear_dir * LINEAR_SPEED
+		
+		if final_velocity.length() > EVADE_MAX_SPEED:
+			final_velocity = final_velocity.normalized() * EVADE_MAX_SPEED
+		
+		player.velocity.x = final_velocity.x
+		player.velocity.z = final_velocity.z
+	else:
+		player.velocity.x = enter_dir.x * free_speed
+		player.velocity.z = enter_dir.z * free_speed
+	
 	player.velocity += player.get_gravity() * delta
-	player.velocity.x = evade_dir.x * free_speed
-	player.velocity.z = evade_dir.z * free_speed
 
 	var target_rotation = atan2(-player.direction_vec.x, -player.direction_vec.z)
 	if player.velocity:
@@ -66,6 +97,7 @@ func physics_process(delta: float) -> State:
 
 func exit() -> void:
 	super()
+	enter_enemy = null
 	player.is_evading = false
 	player.hurtbox.monitoring = true
 	player.evade_hitbox.monitorable = false
@@ -86,3 +118,7 @@ func transform_to_camera_space() -> Vector3:
 
 func toggle_return_condition():
 	should_exit_state = true
+
+
+func _on_target_manager_released_target() -> void:
+	enter_enemy = null
