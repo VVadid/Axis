@@ -12,10 +12,12 @@ var return_dead_state: bool = false
 
 
 func enter() -> void:
+	super()
 	return_dead_state = false
 
 
-func process(_delta: float) -> State:
+func process(delta: float) -> State:
+	super(delta)
 	var to_player: Vector3 = enemy.global_position - enemy.player.global_position
 	
 	if to_player.length() > EXIT_DISTANCE:
@@ -27,7 +29,8 @@ func process(_delta: float) -> State:
 	return null
 
 
-func physics_process(_delta: float) -> State:
+func physics_process(delta: float) -> State:
+	super(delta)
 	enemy.direction_vec = Vector3.ZERO
 	var to_player: Vector3 = (enemy.player.global_position - enemy.global_position)
 	enemy.rotation.y = atan2(to_player.x, to_player.z)

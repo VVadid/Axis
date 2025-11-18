@@ -5,13 +5,15 @@ extends EnemyState
 
 
 
-func process(_delta: float) -> State:
+func process(delta: float) -> State:
+	super(delta)
 	if enemy.is_player_in_proximity:
 		return chase_state
 	
 	return null
 
 
-func physics_process(_delta: float) -> State:
+func physics_process(delta: float) -> State:
+	super(delta)
 	enemy.direction_vec = Vector3.ZERO
 	return null

@@ -16,10 +16,12 @@ const ENTER_DISTANCE: float = 1.0
 var return_dead_state: bool = false
 
 func enter() -> void:
+	super()
 	return_dead_state = false
 
 
-func process(_delta: float) -> State:
+func process(delta: float) -> State:
+	super(delta)
 	if not enemy.is_player_in_proximity:
 		return idle_state
 	
@@ -34,7 +36,9 @@ func process(_delta: float) -> State:
 	return null
 
 
-func physics_process(_delta: float) -> State:
+func physics_process(delta: float) -> State:
+	super(delta)
+	
 	enemy.direction_vec.x = (
 		enemy.player.global_position - enemy.global_position
 		).normalized().x
