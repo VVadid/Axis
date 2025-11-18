@@ -25,8 +25,6 @@ func process(delta: float) -> State:
 	if not enemy.is_player_in_proximity:
 		return idle_state
 	
-	var to_player: Vector3 = enemy.global_position - enemy.player.global_position
-	
 	if to_player.length() < ENTER_DISTANCE:
 		return attack_state
 	

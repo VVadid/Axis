@@ -28,12 +28,6 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.physics_process(delta)
-	
-	velocity.x = direction_vec.x * speed
-	velocity.z = direction_vec.z * speed
-	
-	velocity += get_gravity() * delta
-	
 	move_and_slide()
 
 
