@@ -6,7 +6,12 @@ var attack_in_progress: bool
 func _process(_delta: float) -> void:
 	var state: State = vampire.state_machine.current_state
 	
-	set("parameters/Locomotion/blend_position", 1 if vampire.velocity else 0)
+	var locomotion_blend_position_conditions: bool = (
+		vampire.state_machine.current_state.name != "Idle"
+		and vampire.state_machine.current_state.name != "Knockback"
+	)
+	
+	set("parameters/Locomotion/blend_position", 1 if locomotion_blend_position_conditions else 0)
 	
 	if state.name == "Attack" and not attack_in_progress:
 		set("parameters/ClawOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
