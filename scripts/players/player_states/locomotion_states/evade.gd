@@ -1,9 +1,5 @@
 extends LocomotionState
 
-
-@export var evade_hitbox_damage_data: DamageData
-
-
 @export_node_path("State") var idle_state_path
 @onready var idle_state = get_node(idle_state_path)
 
@@ -39,8 +35,7 @@ func enter() -> void:
 	
 	player.is_evading = true
 	player.hurtbox.monitoring = false
-	player.evade_hitbox.monitorable = true
-	player.evade_hitbox.damage_data = evade_hitbox_damage_data
+
 	player.collision_shape_3d.shape.height = player.CAPSULE_HEIGHT / 2.0
 	player.collision_shape_3d.position.y = player.CAPSULE_POSITION_Y / 2.0
 	
@@ -100,7 +95,6 @@ func exit() -> void:
 	enter_enemy = null
 	player.is_evading = false
 	player.hurtbox.monitoring = true
-	player.evade_hitbox.monitorable = false
 	player.collision_shape_3d.shape.height = player.CAPSULE_HEIGHT
 	player.collision_shape_3d.position.y = player.CAPSULE_POSITION_Y
 
