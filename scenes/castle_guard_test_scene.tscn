@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://sg267t5mheeo"]
+[gd_scene load_steps=28 format=3 uid="uid://sg267t5mheeo"]
 
 [ext_resource type="Script" uid="uid://co76jhf4cxtkj" path="res://scripts/scenes/castle_guard_test_scene.gd" id="1_5dxip"]
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
@@ -51,6 +51,21 @@ script = ExtResource("7_dulke")
 metadata/_custom_type_script = "uid://bkqea6iys40et"
 
 [sub_resource type="Resource" id="Resource_fupxy"]
+script = ExtResource("4_ymcdr")
+health = 200.0
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_ya21s"]
+script = ExtResource("4_ymcdr")
+health = 15.0
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_883n8"]
+script = ExtResource("4_ymcdr")
+health = 200.0
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_gb24r"]
 script = ExtResource("4_ymcdr")
 health = 200.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
@@ -169,6 +184,24 @@ transform = Transform3D(-0.035701837, 0, -0.99936247, 0, 1, 0, 0.99936247, 0, -0
 damage_data = SubResource("Resource_dulke")
 player = NodePath("../../CastleGuard")
 combat_stats = SubResource("Resource_fupxy")
+
+[node name="Vampire2" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(-0.035701837, 0, -0.99936247, 0, 1, 0, 0.99936247, 0, -0.035701837, 10.95273, 1.3297594, -10.831953)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../CastleGuard")
+combat_stats = SubResource("Resource_ya21s")
+
+[node name="Vampire3" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(-0.035701837, 0, -0.99936247, 0, 1, 0, 0.99936247, 0, -0.035701837, 13.492105, 1.3297594, -1.0888472)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../CastleGuard")
+combat_stats = SubResource("Resource_883n8")
+
+[node name="Vampire4" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(-0.035701837, 0, -0.99936247, 0, 1, 0, 0.99936247, 0, -0.035701837, 12.772742, 1.3297594, 2.8966196)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../CastleGuard")
+combat_stats = SubResource("Resource_gb24r")
 
 [node name="WorldGeometry" type="Node3D" parent="."]
 

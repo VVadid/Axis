@@ -11,7 +11,6 @@ var enter_damage_data: DamageData
 
 
 func enter() -> void:
-	print(enemy.knockback_vec)
 	enemy.velocity = enemy.knockback_vec
 
 
