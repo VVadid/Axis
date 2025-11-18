@@ -4,18 +4,22 @@ extends AnimationTree
 var attack_in_progress: bool
 
 func _process(_delta: float) -> void:
+	var state: State = vampire.state_machine.current_state
+	
 	set("parameters/Locomotion/blend_position", 1 if vampire.velocity else 0)
-	if vampire.should_attack and not attack_in_progress:
+	
+	if state.name == "Attack" and not attack_in_progress:
 		set("parameters/ClawOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		attack_in_progress = true
 
 	if attack_in_progress and get("parameters/ClawOneShot/active") == false:
 		attack_in_progress = false
-
+	pass
+	
 func _on_combat_manager_died(_damage_data: DamageData) -> void:
-	vampire.vfx_anim_player.play("death_flash")
+	vampire.fx_anim_player.play("death")
 	set("parameters/DeathBlend/blend_amount", 1)
 
 
 func _on_combat_manager_took_damage(_damage_data: DamageData) -> void:
-	vampire.vfx_anim_player.play("hit_flash")
+	vampire.fx_anim_player.play("hit")
