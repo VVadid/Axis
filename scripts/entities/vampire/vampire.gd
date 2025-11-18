@@ -2,10 +2,10 @@ extends Enemy
 
 
 @export var damage_data: DamageData
-@export var combat_stats: CombatStats
 
 var is_player_in_proximity: bool
 var should_attack: bool
+
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var anim_player: AnimationPlayer = $vampire/AnimationPlayer
@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process(delta)
+	print(state_machine.current_state.name)
 	is_player_in_proximity = player_chase_detector.is_player_in_proximity
 
 

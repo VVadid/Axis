@@ -42,7 +42,6 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_5dxip"]
 script = ExtResource("4_ymcdr")
-health = 100.0
 stamina = 10.0
 armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
@@ -54,7 +53,6 @@ metadata/_custom_type_script = "uid://bkqea6iys40et"
 
 [sub_resource type="Resource" id="Resource_fupxy"]
 script = ExtResource("4_ymcdr")
-health = 200.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia1lp"]
@@ -167,10 +165,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.388145, 3.9835718, 16.229
 combat_stats = SubResource("Resource_5dxip")
 
 [node name="Vampire" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
-transform = Transform3D(-0.035701837, 0, -0.99936247, 0, 1, 0, 0.99936247, 0, -0.035701837, 24.253593, 1.3297594, -3.945053)
+transform = Transform3D(-0.035701837, 0, -0.99936247, 0, 1, 0, 0.99936247, 0, -0.035701837, 11.634883, 1.3297594, -5.5584364)
 damage_data = SubResource("Resource_dulke")
-combat_stats = SubResource("Resource_fupxy")
 player = NodePath("../../CastleGuard")
+combat_stats = SubResource("Resource_fupxy")
 
 [node name="WorldGeometry" type="Node3D" parent="."]
 

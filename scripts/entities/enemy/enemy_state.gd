@@ -16,3 +16,9 @@ func physics_process(delta: float) -> State:
 	enemy.velocity += enemy.get_gravity() * delta
 	
 	return null
+
+
+func calculate_knockback(stagger:float, poise: float, multiplier: float) -> float:
+	if poise <= 0:
+		poise = 1.0
+	return (stagger/poise) * multiplier
