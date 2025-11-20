@@ -7,7 +7,7 @@ extends EnemyState
 
 func process(delta: float) -> State:
 	super(delta)
-	if enemy.is_player_in_proximity:
+	if %PlayerDetector.can_see_player():
 		return chase_state
 	
 	return null

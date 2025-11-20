@@ -28,7 +28,7 @@ func enter() -> void:
 
 func process(delta: float) -> State:
 	super(delta)
-	if not enemy.is_player_in_proximity:
+	if not %PlayerDetector.can_see_player():
 		return idle_state
 	
 	if to_player.length() < ENTER_DISTANCE:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://sg267t5mheeo"]
+[gd_scene load_steps=30 format=3 uid="uid://sg267t5mheeo"]
 
 [ext_resource type="Script" uid="uid://co76jhf4cxtkj" path="res://scripts/scenes/castle_guard_test_scene.gd" id="1_5dxip"]
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
@@ -42,6 +42,13 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_5dxip"]
 script = ExtResource("4_ymcdr")
+stamina = 10.0
+armor = 10.0
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_a7ro2"]
+script = ExtResource("4_ymcdr")
+health = 10000.0
 stamina = 10.0
 armor = 10.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
@@ -159,7 +166,7 @@ combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy3" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42815, 0.050929874, -12.130367)
-combat_stats = SubResource("Resource_5dxip")
+combat_stats = SubResource("Resource_a7ro2")
 
 [node name="MockEnemy4" parent="Enemies" instance=ExtResource("3_521ro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4718504, 0.050929874, 5.469633)
