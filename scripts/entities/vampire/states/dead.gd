@@ -1,10 +1,6 @@
 extends EnemyState
 
 
-func enter() -> void:
-	super()
-	enemy.is_alive = false
-
 
 func physics_process(delta: float) -> State:
 	super(delta)

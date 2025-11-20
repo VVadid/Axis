@@ -3,6 +3,7 @@ extends EnemyState
 @export_node_path("State") var chase_state_path: NodePath
 @onready var chase_state: State = get_node(chase_state_path)
 
+
 const KNOCKBACK_SPEED: float = 5.0
 const KNOCKBACK_DECELERATION: float = 10.0
 

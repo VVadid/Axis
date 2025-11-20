@@ -2,6 +2,7 @@ extends Enemy
 
 
 @export var damage_data: DamageData
+@export var is_attacking: bool
 
 var should_attack: bool
 
@@ -23,6 +24,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process(delta)
+	
+	if name == "Vampire2":
+		print(state_machine.current_state.name)
 
 
 func _physics_process(delta: float) -> void:

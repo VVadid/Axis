@@ -17,24 +17,22 @@ extends EnemyState
 const ENTER_DISTANCE: float = 1.0
 const KNOCKBACK_MULTIPLIER: float = 5.0
 
-var return_dead_state: bool = false
 var return_knockback_state: bool = false
 
 func enter() -> void:
 	super()
-	return_dead_state = false
 	return_knockback_state = false
 
 
 func process(delta: float) -> State:
 	super(delta)
-	if not %PlayerDetector.can_see_player():
+	if not %PlayerDetector.can_see_player() and not enemy.is_alerted:
 		return idle_state
 	
-	if to_player.length() < ENTER_DISTANCE:
+	if to_player.length() < ENTER_DISTANCE and to_player.length() != 0:
 		return attack_state
 	
-	if return_dead_state:
+	if not enemy.is_alive:
 		return dead_state
 	
 	if return_knockback_state:
@@ -59,8 +57,8 @@ func physics_process(delta: float) -> State:
 	return null
 
 
-func _on_combat_manager_died(damage_data: DamageData) -> void:
-	return_dead_state = true
+func _on_combat_manager_died(_damage_data: DamageData) -> void:
+	enemy.is_alive = false
 
 
 func _on_combat_manager_took_damage(damage_data: DamageData) -> void:

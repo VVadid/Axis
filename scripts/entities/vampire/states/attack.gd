@@ -14,13 +14,13 @@ const EXIT_DISTANCE: float = 1.5
 const KNOCKBACK_MULTIPLIER: float = 5.0
 
 
-var return_dead_state: bool = false 
 var return_knockback_state: bool = false
  
+@onready var anim_player: AnimationPlayer = $"../../vampire/AnimationPlayer"
+
 
 func enter() -> void:
 	super()
-	return_dead_state = false
 	return_knockback_state = false
 
 
@@ -28,10 +28,10 @@ func enter() -> void:
 func process(delta: float) -> State:
 	super(delta)
 	
-	if to_player.length() > EXIT_DISTANCE:
+	if to_player.length() > EXIT_DISTANCE and not enemy.is_attacking:
 		return chase_state
 	
-	if return_dead_state:
+	if not enemy.is_alive:
 		return dead_state
 	
 	if return_knockback_state:
@@ -44,12 +44,15 @@ func process(delta: float) -> State:
 func physics_process(delta: float) -> State:
 	super(delta)
 	enemy.direction_vec = Vector3.ZERO
-	enemy.rotation.y = atan2(to_player.x, to_player.z)
+	var target_rotation = atan2(to_player.x, to_player.z)
+	if not enemy.is_attacking:
+		enemy.rotation.y = lerp_angle(enemy.rotation.y, target_rotation, delta * 10)
+	
 	return null
 
 
 func _on_combat_manager_died(_damage_data: DamageData) -> void:
-	return_dead_state = true
+	enemy.is_alive = false
 
 
 func _on_combat_manager_took_damage(damage_data: DamageData) -> void:
