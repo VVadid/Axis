@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://sg267t5mheeo"]
+[gd_scene load_steps=36 format=3 uid="uid://sg267t5mheeo"]
 
 [ext_resource type="Script" uid="uid://co76jhf4cxtkj" path="res://scripts/scenes/castle_guard_test_scene.gd" id="1_5dxip"]
 [ext_resource type="Texture2D" uid="uid://5gmx2rx0kq2d" path="res://assets/kenney_prototype_textures/Dark/texture_01.png" id="1_xkx7l"]
@@ -71,6 +71,30 @@ script = ExtResource("4_ymcdr")
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [sub_resource type="Resource" id="Resource_w8r53"]
+script = ExtResource("4_ymcdr")
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_y6dvb"]
+script = ExtResource("4_ymcdr")
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_t4tjf"]
+script = ExtResource("4_ymcdr")
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_e8frj"]
+script = ExtResource("4_ymcdr")
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_uwfay"]
+script = ExtResource("4_ymcdr")
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_wbtbf"]
+script = ExtResource("7_dulke")
+metadata/_custom_type_script = "uid://bkqea6iys40et"
+
+[sub_resource type="Resource" id="Resource_e07v7"]
 script = ExtResource("4_ymcdr")
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
@@ -198,11 +222,43 @@ damage_data = SubResource("Resource_dulke")
 player = NodePath("../../CastleGuard")
 combat_stats = SubResource("Resource_883n8")
 
-[node name="Vampire5" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
-transform = Transform3D(-0.3490136, 0, 0.93711764, 0, 1, 0, -0.93711764, 0, -0.3490136, -2.135952, 0.17605567, 21.037048)
+[node name="Corridor" type="Node3D" parent="Enemies"]
+
+[node name="Vampire5" parent="Enemies/Corridor" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(-0.3490136, 0, 0.93711764, 0, 1, 0, -0.93711764, 0, -0.3490136, 5.0960197, 0.17605567, 31.735443)
 damage_data = SubResource("Resource_dulke")
-player = NodePath("../../CastleGuard")
+player = NodePath("../../../CastleGuard")
 combat_stats = SubResource("Resource_w8r53")
+
+[node name="Vampire6" parent="Enemies/Corridor" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(0.58744633, 0, -0.8092632, 0, 1, 0, 0.8092632, 0, 0.58744633, 11.709872, 0.17605567, 31.735443)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../../CastleGuard")
+combat_stats = SubResource("Resource_y6dvb")
+
+[node name="Vampire7" parent="Enemies/Corridor" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(0.58744633, 0, -0.8092632, 0, 1, 0, 0.8092632, 0, 0.58744633, 23.242802, 0.17605567, 31.735443)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../../CastleGuard")
+combat_stats = SubResource("Resource_t4tjf")
+
+[node name="Vampire8" parent="Enemies/Corridor" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(-0.8092632, 0, -0.5874462, 0, 1, 0, 0.5874462, 0, -0.8092632, 41.573154, 0.17605567, 31.735443)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../../CastleGuard")
+combat_stats = SubResource("Resource_e8frj")
+
+[node name="Vampire9" parent="Enemies/Corridor" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(-0.8092632, 0, -0.5874462, 0, 1, 0, 0.5874462, 0, -0.8092632, 41.573154, 0.17605567, 17.960714)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../../CastleGuard")
+combat_stats = SubResource("Resource_uwfay")
+
+[node name="Vampire" parent="Enemies/Corridor" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(0.4489136, 0, -0.8935752, 0, 1, 0, 0.8935752, 0, 0.4489136, 41.530888, 0, -3.3460922)
+damage_data = SubResource("Resource_wbtbf")
+player = NodePath("../../../CastleGuard")
+combat_stats = SubResource("Resource_e07v7")
 
 [node name="Vampire4" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
 transform = Transform3D(-0.48415306, 0, -0.87498325, 0, 1, 0, 0.87498325, 0, -0.48415306, 30.729393, 1.3297594, -16.85004)
@@ -281,15 +337,41 @@ material = ExtResource("7_ymcdr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.885828, 1.3489558, -20.05135)
 
 [node name="Corridor" type="CSGBox3D" parent="WorldGeometry"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.2583752, 2.3999023, 18.28497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.42461, 2.3999023, 31.533228)
 use_collision = true
 collision_mask = 6
-size = Vector3(14.2, 4.7998047, 5.39563)
+size = Vector3(40.68203, 4.7998047, 5.39563)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WorldGeometry/Corridor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4169922, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7277355, 0, 0)
 operation = 2
-size = Vector3(13.586914, 5.7678223, 2.607666)
+size = Vector3(38.921486, 5.7678223, 2.607666)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldGeometry/Corridor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.313736, 0, -0.83361816)
+operation = 2
+size = Vector3(2.9731445, 5.7000003, 4.320038)
+
+[node name="Corridor2" type="CSGBox3D" parent="WorldGeometry"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 41.569405, 2.3999023, 13.720444)
+use_collision = true
+collision_mask = 6
+size = Vector3(40.68203, 4.7998047, 5.39563)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldGeometry/Corridor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57050896, 0, 0)
+operation = 2
+size = Vector3(38.275, 5.7678223, 2.607666)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldGeometry/Corridor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.71001, 0, 0.71136093)
+operation = 2
+size = Vector3(2.9731445, 5.7000003, 4.320038)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldGeometry/Corridor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.070492, 0, 1.1832619)
+operation = 2
+size = Vector3(2.9731445, 5.7000003, 4.320038)
 
 [node name="Objects" type="Node3D" parent="."]
 
