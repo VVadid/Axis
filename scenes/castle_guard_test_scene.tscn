@@ -61,16 +61,16 @@ metadata/_custom_type_script = "uid://bkqea6iys40et"
 script = ExtResource("4_ymcdr")
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
-[sub_resource type="Resource" id="Resource_w8r53"]
-script = ExtResource("4_ymcdr")
-metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
-
 [sub_resource type="Resource" id="Resource_ya21s"]
 script = ExtResource("4_ymcdr")
 health = 15.0
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
 [sub_resource type="Resource" id="Resource_883n8"]
+script = ExtResource("4_ymcdr")
+metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
+
+[sub_resource type="Resource" id="Resource_w8r53"]
 script = ExtResource("4_ymcdr")
 metadata/_custom_type_script = "uid://bhqmmiil3ivhf"
 
@@ -165,27 +165,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.674438, 0.050929785, -4.5
 combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy3" parent="Enemies" instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42815, 0.050929874, -12.130367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.909567, 0.05092892, -19.99627)
 combat_stats = SubResource("Resource_a7ro2")
 
 [node name="MockEnemy4" parent="Enemies" instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4718504, 0.050929874, 5.469633)
-combat_stats = SubResource("Resource_5dxip")
-
-[node name="MockEnemy5" parent="Enemies" instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.870735, 0.050929874, 11.772595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9000206, 0.050929874, -13.980494)
 combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy9" parent="Enemies" instance=ExtResource("3_521ro")]
-transform = Transform3D(0.75491565, 0, -0.65582186, 0, 1, 0, 0.65582186, 0, 0.75491565, 19.005234, 1.3325528, -9.352795)
-combat_stats = SubResource("Resource_5dxip")
-
-[node name="MockEnemy6" parent="Enemies" instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.088146, 0.050929874, 2.929635)
+transform = Transform3D(0.75491565, 0, -0.65582186, 0, 1, 0, 0.65582186, 0, 0.75491565, 25.078007, 1.3325528, -22.96648)
 combat_stats = SubResource("Resource_5dxip")
 
 [node name="MockEnemy7" parent="Enemies" instance=ExtResource("3_521ro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.388145, 3.9835718, 16.229635)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.726479, 4.3094935, 21.068165)
 combat_stats = SubResource("Resource_5dxip")
 
 [node name="Vampire" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
@@ -194,14 +186,8 @@ damage_data = SubResource("Resource_dulke")
 player = NodePath("../../CastleGuard")
 combat_stats = SubResource("Resource_fupxy")
 
-[node name="Vampire5" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
-transform = Transform3D(-0.63478446, 0, -0.7726893, 0, 1, 0, 0.7726893, 0, -0.63478446, 9.311862, 0.1618123, 17.05234)
-damage_data = SubResource("Resource_dulke")
-player = NodePath("../../CastleGuard")
-combat_stats = SubResource("Resource_w8r53")
-
 [node name="Vampire2" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
-transform = Transform3D(0.9117477, 0, 0.41075066, 0, 1, 0, -0.41075066, 0, 0.9117477, -5.221637, 0.13626862, -13.4567375)
+transform = Transform3D(0.9117477, 0, 0.41075066, 0, 1, 0, -0.41075066, 0, 0.9117477, -6.1740704, 0.13626862, -16.695227)
 damage_data = SubResource("Resource_dulke")
 player = NodePath("../../CastleGuard")
 combat_stats = SubResource("Resource_ya21s")
@@ -212,8 +198,14 @@ damage_data = SubResource("Resource_dulke")
 player = NodePath("../../CastleGuard")
 combat_stats = SubResource("Resource_883n8")
 
+[node name="Vampire5" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
+transform = Transform3D(-0.3490136, 0, 0.93711764, 0, 1, 0, -0.93711764, 0, -0.3490136, -2.135952, 0.17605567, 21.037048)
+damage_data = SubResource("Resource_dulke")
+player = NodePath("../../CastleGuard")
+combat_stats = SubResource("Resource_w8r53")
+
 [node name="Vampire4" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("6_l24ej")]
-transform = Transform3D(-0.48415306, 0, -0.87498325, 0, 1, 0, 0.87498325, 0, -0.48415306, 24.189482, 1.3297594, -2.9694138)
+transform = Transform3D(-0.48415306, 0, -0.87498325, 0, 1, 0, 0.87498325, 0, -0.48415306, 30.729393, 1.3297594, -16.85004)
 damage_data = SubResource("Resource_dulke")
 player = NodePath("../../CastleGuard")
 combat_stats = SubResource("Resource_gb24r")
@@ -223,7 +215,7 @@ combat_stats = SubResource("Resource_gb24r")
 [node name="Plane" type="CSGBox3D" parent="WorldGeometry"]
 material_override = SubResource("StandardMaterial3D_ia1lp")
 use_collision = true
-size = Vector3(67.336914, 0.1, 51.85962)
+size = Vector3(100, 0.1, 100)
 
 [node name="Obstacles" type="Node3D" parent="WorldGeometry"]
 
@@ -255,7 +247,7 @@ size = Vector3(6.4, 0.3, 3.5)
 material = ExtResource("7_ymcdr")
 
 [node name="Steps" type="Node3D" parent="WorldGeometry"]
-transform = Transform3D(-0.93969274, 0, -0.34202018, 0, 1, 0, 0.34202018, 0, -0.93969274, -12.2, 0, 16.5)
+transform = Transform3D(-0.93969274, 0, -0.34202018, 0, 1, 0, 0.34202018, 0, -0.93969274, -23.880486, 0, 20.751348)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WorldGeometry/Steps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99999905, 3.5, 0)
@@ -286,12 +278,23 @@ size = Vector3(8, 1, 6)
 material = ExtResource("7_ymcdr")
 
 [node name="Ring" parent="WorldGeometry" instance=ExtResource("10_urv7r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.008062, 1.3489558, -6.1429696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.885828, 1.3489558, -20.05135)
+
+[node name="Corridor" type="CSGBox3D" parent="WorldGeometry"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.2583752, 2.3999023, 18.28497)
+use_collision = true
+collision_mask = 6
+size = Vector3(14.2, 4.7998047, 5.39563)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldGeometry/Corridor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4169922, 0, 0)
+operation = 2
+size = Vector3(13.586914, 5.7678223, 2.607666)
 
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="pumpkin" parent="Objects" instance=ExtResource("10_q5s2f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.99129283, 5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6427507, 0.99129283, -17.399406)
 
 [node name="pumpkin7" parent="Objects" instance=ExtResource("10_q5s2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3915417, 1.0675125, -12.834084)
@@ -300,10 +303,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3915417, 1.0675125, -12.834
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7219505, 0, -18.7181)
 
 [node name="pumpkin6" parent="Objects" instance=ExtResource("10_q5s2f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.199999, 0, 19.800003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.432991, 0, 23.532896)
 
 [node name="pumpkin2" parent="Objects" instance=ExtResource("10_q5s2f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.900001, 3.1999998, 15.500001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3909, 3.1001203, 19.500992)
 
 [node name="pumpkin3" parent="Objects" instance=ExtResource("10_q5s2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.800001, 3.6999998, -13.999999)
@@ -312,49 +315,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.800001, 3.6999998, -13.99
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.000002, 3.6999998, -3.6999989)
 
 [node name="pumpkin8" parent="Objects" instance=ExtResource("10_q5s2f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.793873, 1.9123046, 0.5320549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.202036, 1.9123046, -13.379658)
 
 [node name="Table" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 0, 6.2000003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9236338, 0, -16.756372)
 
 [node name="Table2" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -8.244779, 0, 11.224915)
+transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -19.634985, 0, 15.348337)
 
 [node name="Table9" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -4.5037017, 0, 9.870589)
+transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -15.893908, 0, 13.994012)
 
 [node name="Table10" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -11.952267, 0, 12.56708)
+transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -23.342472, 0, 16.690502)
 
 [node name="Table11" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -15.962177, 0, 14.018726)
+transform = Transform3D(0.94028217, 0, 0.34039602, 0, 1, 0, -0.34039602, 0, 0.94028217, -27.352383, 0, 18.142149)
 
 [node name="Table12" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.3403959, 0, -0.9402822, 0, 1, 0, 0.9402822, 0, 0.3403959, -18.395489, 4.7683713e-07, 15.655077)
+transform = Transform3D(0.3403959, 0, -0.9402822, 0, 1, 0, 0.9402822, 0, 0.3403959, -31.084436, 4.7683713e-07, 21.537579)
 
 [node name="Table13" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.05132501, 0, -0.998682, 0, 1, 0, 0.998682, 0, 0.05132501, -17.965994, 1.246776, 15.324583)
+transform = Transform3D(0.05132501, 0, -0.998682, 0, 1, 0, 0.998682, 0, 0.05132501, -30.75679, 1.153267, 21.265213)
 
 [node name="Table14" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.6989647, 0, -0.7151562, 0, 1, 0, 0.7151562, 0, 0.6989647, -18.714294, 2.4223218, 16.186037)
+transform = Transform3D(0.38706502, 0, -0.9220524, 0, 1, 0, 0.9220524, 0, 0.38706502, -31.346588, 2.4223218, 21.717848)
 
 [node name="Table3" parent="Objects" instance=ExtResource("11_5lmjk")]
 transform = Transform3D(0.9226256, 0, 0.38569674, 0, 1, 0, -0.38569674, 0, 0.9226256, 0.45044184, 0, -11.692927)
 
 [node name="Table4" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.5302448, 0, -0.84784454, 0, 1, 0, 0.84784454, 0, 0.5302448, 16.1734, 0.049999952, 0.63439894)
+transform = Transform3D(0.5302448, 0, -0.84784454, 0, 1, 0, 0.84784454, 0, 0.5302448, 22.33833, 0.049999475, -12.919157)
 
 [node name="Table5" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.5302448, 0, -0.84784454, 0, 1, 0, 0.84784454, 0, 0.5302448, 17.0528, 0.049999952, -0.85923624)
+transform = Transform3D(0.5302448, 0, -0.84784454, 0, 1, 0, 0.84784454, 0, 0.5302448, 23.330849, 0.049999952, -14.527567)
 
 [node name="Table6" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(-0.43266806, 0, -0.9015533, 0, 1, 0, 0.9015533, 0, -0.43266806, 17.74324, 0.9807861, -0.78510094)
+transform = Transform3D(-0.43266806, 0, -0.9015533, 0, 1, 0, 0.9015533, 0, -0.43266806, 24.060226, 0.98078656, -14.628892)
 
 [node name="Table7" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.00492173, 0, -0.9999879, 0, 1, 0, 0.9999879, 0, 0.00492173, 15.65056, 0.049999714, -10.135646)
+transform = Transform3D(0.00492173, 0, -0.9999879, 0, 1, 0, 0.9999879, 0, 0.00492173, 22.19047, 0.049999714, -20.746315)
 
 [node name="Table8" parent="Objects" instance=ExtResource("11_5lmjk")]
-transform = Transform3D(0.7078592, 0, 0.7063535, 0, 1, 0, -0.7063535, 0, 0.7078592, 26.382113, 0.049999714, -0.31362492)
+transform = Transform3D(0.7078592, 0, 0.7063535, 0, 1, 0, -0.7063535, 0, 0.7078592, 28.250658, 0.049999714, -12.926309)
 
 [connection signal="pressed" from="CanvasLayer/Control/Menu/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Menu/VBoxContainer/Reload" to="." method="_on_reload_pressed"]
