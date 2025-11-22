@@ -12,6 +12,7 @@ var enter_damage_data: DamageData
 
 
 func enter() -> void:
+	super()
 	enemy.velocity = enemy.knockback_vec
 
 
@@ -31,3 +32,8 @@ func physics_process(delta: float) -> State:
 		return chase_state
 	
 	return null
+
+
+func exit() -> void:
+	super()
+	enemy.is_alerted = true

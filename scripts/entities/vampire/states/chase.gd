@@ -16,6 +16,7 @@ extends EnemyState
 
 const ENTER_DISTANCE: float = 1.0
 const KNOCKBACK_MULTIPLIER: float = 5.0
+var max_to_player_length: float = 20.0
 
 var return_knockback_state: bool = false
 
@@ -37,6 +38,9 @@ func process(delta: float) -> State:
 	
 	if return_knockback_state:
 		return knockback_state
+	
+	if to_player.length() > max_to_player_length:
+		enemy.is_alerted = false
 	
 	return null
 
