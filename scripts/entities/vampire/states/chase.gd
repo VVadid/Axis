@@ -20,6 +20,10 @@ var max_to_player_length: float = 20.0
 
 var return_knockback_state: bool = false
 
+var step_interval: float = 0.31
+var step_timer: float = 0.0
+
+
 func enter() -> void:
 	super()
 	return_knockback_state = false
@@ -27,6 +31,12 @@ func enter() -> void:
 
 func process(delta: float) -> State:
 	super(delta)
+	
+	step_timer -= delta
+	
+	if step_timer <= 0:
+		%FootstepAudioPlayer.play()
+		step_timer = step_interval
 	if not %PlayerDetector.can_see_player() and not enemy.is_alerted:
 		return idle_state
 	

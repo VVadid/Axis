@@ -39,6 +39,8 @@ func enter() -> void:
 	player.collision_shape_3d.shape.height = player.CAPSULE_HEIGHT / 2.0
 	player.collision_shape_3d.position.y = player.CAPSULE_POSITION_Y / 2.0
 	
+	%RollAudioPlayer.play()
+	
 	%AnimationTree.request_evade_one_shot()
 	player.combat_manager.drain_stamina(player.evade_stamina_cost)
 

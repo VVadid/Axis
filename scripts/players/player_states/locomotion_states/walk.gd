@@ -26,6 +26,7 @@ var step_timer: float = 0.0
 
 
 func process(delta: float) -> State:
+	super(delta)
 	step_timer -= delta
 	step_interval = targeted_step_interval if player.is_target_locked else free_step_interval
 	
