@@ -18,10 +18,28 @@ extends LocomotionState
 @onready var evade_state = get_node(evade_state_path)
 
 
+var free_step_interval: float = 0.4
+var targeted_step_interval: float = 0.4
+
+var step_interval: float = free_step_interval
+var step_timer: float = 0.0
 
 func enter() -> void:
 	super()
 	player.is_sprinting = true
+
+
+func process(delta: float) -> State:
+	step_timer -= delta
+	step_interval = targeted_step_interval if player.is_target_locked else free_step_interval
+	
+	if step_timer <= 0:
+		%FootstepAudioPlayer.play()
+		step_timer = step_interval
+	
+	return null
+
+
 
 
 

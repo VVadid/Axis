@@ -18,6 +18,24 @@ extends LocomotionState
 @onready var evade_state = get_node(evade_state_path)
 
 
+var free_step_interval: float = 0.525
+var targeted_step_interval: float = 0.675
+
+var step_interval: float = free_step_interval
+var step_timer: float = 0.0
+
+
+func process(delta: float) -> State:
+	step_timer -= delta
+	step_interval = targeted_step_interval if player.is_target_locked else free_step_interval
+	
+	if step_timer <= 0:
+		%FootstepAudioPlayer.play()
+		step_timer = step_interval
+	
+	return null
+	
+
 func physics_process(delta: float) -> State:
 	super(delta)
 	if player.direction_vec == Vector3.ZERO:
@@ -25,8 +43,6 @@ func physics_process(delta: float) -> State:
 	
 	if not player.is_on_floor():
 		return fall_state
-	
-	
 	
 	return null
 
