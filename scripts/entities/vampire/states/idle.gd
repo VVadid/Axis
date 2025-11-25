@@ -6,6 +6,9 @@ extends EnemyState
 @export_node_path("State") var knockback_state_path: NodePath
 @onready var knockback_state: State = get_node(knockback_state_path)
 
+@export_node_path("State") var dead_state_path: NodePath
+@onready var dead_state: State = get_node(dead_state_path)
+
 var return_knockback_state: bool = false
 const KNOCKBACK_MULTIPLIER: float = 5.0
 
@@ -24,6 +27,9 @@ func process(delta: float) -> State:
 	if return_knockback_state:
 		return knockback_state
 	
+	if not enemy.is_alive:
+		return dead_state
+	
 	return null
 
 
@@ -38,3 +44,7 @@ func _on_combat_manager_took_damage(damage_data: DamageData) -> void:
 	enemy.knockback_vec = damage_data.hit_direction * calculate_knockback(
 		damage_data.stagger_value, enemy.combat_stats.poise, KNOCKBACK_MULTIPLIER
 		)
+
+
+func _on_combat_manager_died(_damage_data: DamageData) -> void:
+	enemy.is_alive = false
