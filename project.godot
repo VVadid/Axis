@@ -26,6 +26,10 @@ HitStopManager="*res://scripts/autoloads/hit_stop_manager.gd"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [global_group]
 
 targetable=""
